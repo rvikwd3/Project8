@@ -1,0 +1,7 @@
+-   Design Graph units
+-   Design Graph unit -> file function
+-   Create directory to store graph database
+
+-   RGB to HSI conversion
+-   Find faster method of HSI conversion
+-   Find Region Growing method of creating graph nodes
