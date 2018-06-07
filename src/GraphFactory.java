@@ -13,7 +13,7 @@ public class GraphFactory {
     }
 
     //Read file
-    BufferedImage read(File input_file){
+    final BufferedImage read(File input_file){
         try{
             bi = ImageIO.read(input_file);
         }catch(IOException e){
@@ -28,7 +28,8 @@ public class GraphFactory {
         return bi;
     }
 
-    int[][] convImageToRGBMatrix(BufferedImage bi){
+    //Extract RGB matrix from BufferedImage (FastRGB)
+    final int[][] convImageToRGBMatrix(BufferedImage bi){
         final byte[] pixels = ((DataBufferByte) bi.getRaster().getDataBuffer()).getData();
         final int width = bi.getWidth();
         final int height = bi.getHeight();
@@ -76,5 +77,10 @@ public class GraphFactory {
         }
 
         return result;
+    }
+
+    //Print RGB values of aRGB integer
+    final void printRGBFromARGB(int argb){
+        System.out.println("Red = "+((argb >> 16)&0xFF)+"\tGreen = "+((argb >> 8)&0xFF)+"\tBlue = "+((argb)&0xFF));
     }
 }

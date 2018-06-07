@@ -19,8 +19,11 @@ public class Main {
         //Print RGB Matrix
         for(int i=0; i < init_img.getHeight(); i++){
             for(int j=0; j < init_img.getWidth(); j++){
-                System.err.println("i="+i+"\tj="+j);
+                System.out.println("i="+i+"\tj="+j);
                 System.out.println(init_img_rgb_matrix[i][j]);
+                graphFactory.printRGBFromARGB(init_img_rgb_matrix[i][j]);
+                //extra line
+                System.out.println();
             }
             System.out.println();
         }
