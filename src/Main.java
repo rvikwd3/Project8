@@ -6,24 +6,23 @@ public class Main {
     public static void main(String[] args){
         System.out.println("**********\nInit Project\n**********");
 
+        //Initialize GraphFactory
         GraphFactory graphFactory = new GraphFactory();
 
-        BufferedImage bi = graphFactory.read(new File(args[0]));
+        //Read image given in Arguments
+        BufferedImage init_img = graphFactory.read(new File(args[0]));
 
-        System.out.println(args[0]+" was read successfully");
+        //Extract RGB pixel array from image
+        int[][] init_img_rgb_matrix = new int[init_img.getHeight()][init_img.getWidth()];
+        init_img_rgb_matrix = graphFactory.convImageToRGBMatrix(init_img);
 
-//        for(int i=0; i < bi.getHeight(); i++){
-//            for(int j=0; j < bi.getWidth(); j++){
-//                System.out.println(bi.getRGB(j,i));
-//            }
-//        }
-
-        //Using a non-iterative version of RGB
-
-        byte[] pixels = ((DataBufferByte) bi.getRaster().getDataBuffer()).getData();
-
-        for (int i=0; i < pixels.length; i++){
-            System.out.println((pixels[i] & 0xFF));
+        //Print RGB Matrix
+        for(int i=0; i < init_img.getHeight(); i++){
+            for(int j=0; j < init_img.getWidth(); j++){
+                System.err.println("i="+i+"\tj="+j);
+                System.out.println(init_img_rgb_matrix[i][j]);
+            }
+            System.out.println();
         }
     }
 }
