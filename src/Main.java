@@ -1,5 +1,4 @@
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.File;
 
 public class Main {
@@ -22,13 +21,17 @@ public class Main {
                 System.out.println("i="+i+"\tj="+j);
                 System.out.println(init_img_rgb_matrix[i][j]);
                 graphFactory.printRGBFromARGB(init_img_rgb_matrix[i][j]);
-                //extra line
-                System.out.println();
+
+                //print HSV values
+                double hsv[] = graphFactory.RGBtoHSV(\
+                        graphFactory.getRedFromARGB(init_img_rgb_matrix[i][j]),\
+                        graphFactory.getGreenFromARGB(init_img_rgb_matrix[i][j]),\
+                        graphFactory.getBlueFromARGB(init_img_rgb_matrix[i][j])
+                );
+                System.out.println("H="+hsv[0]+"\tS="+hsv[1]+"\tV="+hsv[2]+"\n");
             }
             System.out.println();
         }
 
-        double hsv[] = graphFactory.RGBtoHSV(255,0,0);
-        System.out.println("H="+hsv[0]+"\tS="+hsv[1]+"\tV="+hsv[2]);
     }
 }

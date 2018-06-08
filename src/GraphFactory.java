@@ -79,9 +79,24 @@ public class GraphFactory {
         return result;
     }
 
+    //Get Red from aRGB
+    final int getRedFromARGB(int argb){
+        return ((argb >> 16)&0xFF);
+    }
+
+    //Get Green from aRGB
+    final int getGreenFromARGB(int argb){
+        return ((argb >> 8)&0xFF);
+    }
+
+    //Get Blue from aRGB
+    final int getBlueFromARGB(int argb){
+        return ((argb)&0xFF);
+    }
+
     //Print RGB values of aRGB integer
     final void printRGBFromARGB(int argb){
-        System.out.println("Red = "+((argb >> 16)&0xFF)+"\tGreen = "+((argb >> 8)&0xFF)+"\tBlue = "+((argb)&0xFF));
+        System.out.println("R="+((argb >> 16)&0xFF)+"\tG="+((argb >> 8)&0xFF)+"\tB="+((argb)&0xFF));
     }
 
     //Convert RGB values to HSV values
