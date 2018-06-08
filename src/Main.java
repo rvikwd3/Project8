@@ -27,5 +27,8 @@ public class Main {
             }
             System.out.println();
         }
+
+        double hsv[] = graphFactory.RGBtoHSV(255,0,0);
+        System.out.println("H="+hsv[0]+"\tS="+hsv[1]+"\tV="+hsv[2]);
     }
 }

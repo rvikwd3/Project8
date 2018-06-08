@@ -8,3 +8,6 @@
 ## 07-06-2018
 * How to extract aRGB values from amalgamated aRGB integer?  
     (Currently using FastRGB conversion)
+
+## 08-06-2018
+* Convert RGB to HSV (Using optimized)

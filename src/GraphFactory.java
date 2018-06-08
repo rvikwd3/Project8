@@ -83,4 +83,38 @@ public class GraphFactory {
     final void printRGBFromARGB(int argb){
         System.out.println("Red = "+((argb >> 16)&0xFF)+"\tGreen = "+((argb >> 8)&0xFF)+"\tBlue = "+((argb)&0xFF));
     }
+
+    //Convert RGB values to HSV values
+    //http://lolengine.net/blog/2013/01/13/fast-rgb-to-hsv
+    final double[] RGBtoHSV(int r, int g, int b){
+
+        double result[] = {0,0,0};
+        double red = r/255.0;
+        double green = g/255.0;
+        double blue = b/255.0;
+
+        double K = 0.0;
+
+        if(green < blue){
+            double tmp = green; green = blue; blue = tmp;
+            K = -1;
+        }
+
+        if(red < green){
+            double tmp = red; red = green; green = tmp;
+            K = -2 / 6 - K;
+        }
+
+        if(green < blue){
+            double tmp = green; green = blue; blue = tmp;
+            K = -K;
+        }
+
+        double chroma = red - blue;
+        result[0] = Math.abs(K + (green - blue) / (6 * chroma + 0.000001));
+        result[1] = chroma / (red + 0.000001);
+        result[2] = red;
+
+        return result;
+    }
 }
